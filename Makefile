@@ -1,8 +1,8 @@
 CXX = g++
 CC = $(CXX)
-LDLIBS += $(shell pkg-config --libs opencv)
+LDLIBS += $(shell pkg-config --silence-errors --libs opencv4 || pkg-config --libs opencv)
 LDLIBS += $(shell pkg-config --libs libusb-1.0)
-CXXFLAGS += $(shell pkg-config --cflags opencv)
+CXXFLAGS += $(shell pkg-config --silence-errors --cflags opencv4 || pkg-config --cflags opencv)
 CXXFLAGS += $(shell pkg-config --cflags libusb-1.0)
 CXXFLAGS += -Wall -std=c++11
 LDFLAGS += -lstdc++
